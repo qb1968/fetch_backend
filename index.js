@@ -17,7 +17,7 @@ app.post('/spendPoints',(req,res)=>{
     {
         sum+=pointsTotal[value];
     }
-    //check if the points requested to be deducted is lesser than the available points
+    
     if(sum<reqpoints)
     {
         res.send({"Message":"Available points is lesser than the deduction request"});
@@ -25,11 +25,11 @@ app.post('/spendPoints',(req,res)=>{
 
     else
     {
-        //sorting in descending order
+        
         allPoints= allPoints.sort((a,b)=> { return new Date(a.time) - new Date(b.time) });
         remaining=reqpoints;
         deductedJSON={};
-        //calculating deductable points
+        
         for(let x=0;x<allPoints.length;x++)
         {
             let deducted=0;
@@ -53,13 +53,13 @@ app.post('/spendPoints',(req,res)=>{
 
             if(remaining<=0)
             {
-                //resetting pointsTotal to 0 to calculate fresh
+                
                 for(let z in pointsTotal)
                 {
                     pointsTotal[z]=0;
                 }
 
-                //removing the 0 points used up user entries
+                
                 for(let y=0;y<allPoints.length;y++)
                 {
                     if(allPoints[y].points==0)
@@ -75,7 +75,7 @@ app.post('/spendPoints',(req,res)=>{
                             pointsTotal[allPoints[y].payer]=allPoints[y].points;
                     }
                 }
-                //sending response and breazing out
+                
                 res.send(deductedJSON);
                 break;
             }
@@ -86,7 +86,7 @@ app.post('/spendPoints',(req,res)=>{
 });
 
 app.post('/addPoints', (req, res)=>{
-    //pushing into ditributedPoints and totaling the points in pointsTotal letiables
+    
     record=req.body;
     record.time=moment(record.time,"MM/DD/YYYY h:m a").toDate();
 
