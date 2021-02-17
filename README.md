@@ -26,9 +26,9 @@ That will run the backend on http://localhost:5000
 
 - Next make a POST request to http://localhost:5000/spendPoints :
 
- Add this to the body { "points": 5000 }
+  Add this to the body { "points": 5000 }
 
- And result should be :
+  And result should be :
 
 
 - { "payer": "DANNON", "points": -100 },
@@ -38,7 +38,7 @@ That will run the backend on http://localhost:5000
 
 - Finally make a GET request to http://localhost:5000/get/Total :
 
-And result should be :
+  And result should be :
 
 {
 "DANNON": 1000,
