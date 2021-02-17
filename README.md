@@ -22,7 +22,7 @@ That will run the backend on http://localhost:5000
 - { "payer": "MILLER COORS", "points": 10000, "timestamp": "2020-11-01T14:00:00Z" }
 - { "payer": "DANNON", "points": 300, "timestamp": "2020-10-31T10:00:00Z" }
 
-(Make sure you enter each line with a separate POST request)
+### `(Make sure you enter each line with a separate POST request)`
 
 - Next make a POST request to http://localhost:5000/spendPoints :
 
